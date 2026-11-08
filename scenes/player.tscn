@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b14epx16ul4qj"]
+
+[ext_resource type="Script" uid="uid://v2k8pl4o5lmj" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://lso5dgrm1tjd" path="res://sprites/player.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bih82nlyikxvo" path="res://sprites/player_shadow.png" id="2_qhqgy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5q4oy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g2els")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(3, 16)
+
+[node name="Player" type="CharacterBody2D" unique_id=2046441986]
+script = ExtResource("1_g2els")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=2145656982]
+position = Vector2(0, 8)
+texture = ExtResource("2_qhqgy")
+
+[node name="ShadowRay" type="RayCast2D" parent="." unique_id=784734854]
+target_position = Vector2(0, 96)
+hit_from_inside = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=277166470]
+sprite_frames = SubResource("SpriteFrames_5q4oy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652618851]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1563170892]
+offset = Vector2(0, -16)
+process_callback = 0
+limit_bottom = 135
+limit_smoothed = true

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp4r1vvnx8u16"]
 
-[ext_resource type="Script" uid="uid://dieajmnjva8rx" path="res://scripts/parallax.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://dieajmnjva8rx" path="res://scripts/environment/parallax.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d3pr4tm06ujln" path="res://scenes/main.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c3ax8pvrqwun8" path="res://sprites/background.png" id="2_iywne"]
 [ext_resource type="Script" uid="uid://byrq0kqvmawo1" path="res://scripts/player/camera.gd" id="2_yqjtg"]
@@ -10,17 +10,15 @@ texture_filter = 1
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1131407868]
 scale = Vector2(12.2, 12.2)
-repeat_size = Vector2(160, 0)
+scroll_scale = Vector2(2, 2)
+repeat_size = Vector2(80, 0)
+repeat_times = 3
 follow_viewport = false
 ignore_camera_scroll = true
 script = ExtResource("1_lbhrr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=565743795]
-texture = ExtResource("2_iywne")
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/Sprite2D" unique_id=50795212]
-position = Vector2(0, 90)
-scale = Vector2(1, -1)
+modulate = Color(1, 1, 1, 0.47058824)
 texture = ExtResource("2_iywne")
 
 [node name="Control" type="Control" parent="." unique_id=1997001230]

@@ -7,7 +7,7 @@ extends Parallax2D
 
 func update_parallax() -> void:
 	if player_cam:
-		screen_offset = player_cam.get_screen_center_position() + camera.offset
+		screen_offset = player_cam.get_screen_center_position() # + camera.offset
 
 
 # Called when the node enters the scene tree for the first time.

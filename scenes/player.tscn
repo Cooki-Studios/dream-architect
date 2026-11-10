@@ -56,12 +56,22 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dqkch"]
 animation = &"walk_right"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tuyoq"]
-advance_mode = 2
-advance_condition = &"walk_right"
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_qlg0r"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tuyoq"]
+graph_offset = Vector2(-422.22223, -95.55556)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_dqkch")
+nodes/Animation/position = Vector2(-111.111115, 111.111115)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_qlg0r")
+nodes/TimeScale/position = Vector2(66.66667, 111.111115)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qhqgy"]
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tuyoq"]
+advance_mode = 2
+advance_condition = &"walk_right"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dqkch"]
 advance_mode = 2
@@ -71,9 +81,9 @@ advance_condition = &"idle"
 states/Start/position = Vector2(195.55556, 102.46919)
 states/idle/node = SubResource("AnimationNodeAnimation_qhqgy")
 states/idle/position = Vector2(357.33334, 102.00002)
-states/walk_right/node = SubResource("AnimationNodeAnimation_dqkch")
-states/walk_right/position = Vector2(555.11115, 107.55558)
-transitions = ["idle", "walk_right", SubResource("AnimationNodeStateMachineTransition_tuyoq"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_qhqgy"), "walk_right", "idle", SubResource("AnimationNodeStateMachineTransition_dqkch")]
+states/walk/node = SubResource("AnimationNodeBlendTree_tuyoq")
+states/walk/position = Vector2(521.77783, 100.29906)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_qhqgy"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_tuyoq"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_dqkch")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(3, 16)
@@ -92,7 +102,6 @@ hit_from_inside = true
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=650691982]
 material = SubResource("ShaderMaterial_qhqgy")
 texture = ExtResource("2_g2els")
-offset = Vector2(0, -1)
 hframes = 3
 vframes = 3
 
@@ -104,6 +113,7 @@ tree_root = SubResource("AnimationNodeStateMachine_m6ptm")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/idle = false
 parameters/conditions/walk_right = false
+parameters/walk/TimeScale/scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652618851]
 visible = false

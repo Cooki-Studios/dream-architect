@@ -3,14 +3,13 @@
 [ext_resource type="Script" uid="uid://dieajmnjva8rx" path="res://scripts/parallax.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d3pr4tm06ujln" path="res://scenes/main.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://c3ax8pvrqwun8" path="res://sprites/background.png" id="2_iywne"]
-[ext_resource type="Script" uid="uid://byrq0kqvmawo1" path="res://scripts/camera.gd" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://byrq0kqvmawo1" path="res://scripts/player/camera.gd" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=2018640442]
 texture_filter = 1
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=1131407868]
 scale = Vector2(12.2, 12.2)
-scroll_scale = Vector2(0.2, 0.2)
 repeat_size = Vector2(160, 0)
 follow_viewport = false
 ignore_camera_scroll = true
@@ -58,6 +57,7 @@ stretch = true
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
+snap_2d_transforms_to_pixel = true
 use_hdr_2d = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(328, 188)

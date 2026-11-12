@@ -25,5 +25,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var target: Vector2 = player_cam.get_screen_center_position()
-	smoothed = lerp(smoothed, target, speed * delta)
+	smoothed = lerp(smoothed, target, exp(speed * delta) - 1)
 	update_offset(target)

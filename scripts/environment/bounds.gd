@@ -2,7 +2,7 @@ extends StaticBody2D
 
 
 const GRID := 8
-@export var r := Rect2i(-3, -2, 10, 4):
+@export var r := Rect2i(-8, -6, 17, 9):
 	get: return Rect2(r.position * GRID, r.size * GRID)
 
 
